@@ -33,15 +33,24 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         # Approach 1:
-        # Time Complexity: O(K)
+        # Time Complexity: O(k)
         # Space Complexity: O(1)
-        for n in range(k):
-            num = nums.pop(len(nums) - 1)
-            nums.insert(0, num)
+        # for n in range(k):
+        #     num = nums.pop(len(nums) - 1)
+        #     print(num)
+        #     nums.insert(0, num)
+
+        # Approach 2: Optimal
+        # Time Complexity: O(n)
+        # Space Complexity: O(1)
+        k = k % len(nums)
+        nums[:] = nums[-k:] + nums[:-k]
+
+        print(9 % 2)
 
 
 if __name__ == "__main__":
-    nums = [1, 2, 3, 4, 5, 6, 7]
+    nums = [-1, -100, 3, 99]
     solution = Solution()
-    solution.rotate(nums, 3)
+    solution.rotate(nums, 2)
     print(nums)
